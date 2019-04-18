@@ -101,7 +101,7 @@ let g:NERDTreeStatusline=''
 " - jellybeans
 " - solarized8
 " - apprentice
-colorscheme jellybeans
+colorscheme solarized8
 
 " Font
 set guifont=Menlo\ Regular:h15

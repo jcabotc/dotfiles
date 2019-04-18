@@ -24,7 +24,7 @@ Plugin 'bling/vim-airline'
 " Auto save files
 Plugin '907th/vim-auto-save'
 
-" Style
+" Colorschemes
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'romainl/Apprentice'
