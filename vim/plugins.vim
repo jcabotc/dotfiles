@@ -41,6 +41,7 @@ Plugin 'tpope/vim-abolish' " word coercions
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'mg979/vim-visual-multi'
+Plugin 'ervandew/supertab'
 
 " Language specific: elixir
 Plugin 'elixir-editors/vim-elixir'
