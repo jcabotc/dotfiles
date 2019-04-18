@@ -26,14 +26,16 @@ backup_if_exists () {
 
 create_symlink () {
   echo -n " └─ Creating symlink..."
-  ln -s $repo_dir/$1 $target_dir/$1
+  ln -s $repo_dir/$1 $target_dir/$2
   echo "${green}done${reset}"
 }
 
-# Create symlinks to dotfiles
+# Create .vimrc symlink
+echo "${bold}.vimrc${reset}"
+backup_if_exists ".vimrc"
+create_symlink "vimrc" ".vimrc"
 
-for file in $files; do
-	echo "${bold}$file${reset}"
-  backup_if_exists $file
-  create_symlink $file
-done
+# Create .vim/ symlink
+echo "${bold}.vim${reset}"
+backup_if_exists ".vim"
+create_symlink "vim" ".vim"
