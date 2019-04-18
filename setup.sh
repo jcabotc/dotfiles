@@ -39,3 +39,7 @@ create_symlink "vimrc" ".vimrc"
 echo "${bold}.vim${reset}"
 backup_if_exists ".vim"
 create_symlink "vim" ".vim"
+
+# TODO: Install vundle?
+# TODO: Plugin install?
+# TODO: make vimproc

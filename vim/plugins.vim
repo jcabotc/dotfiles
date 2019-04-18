@@ -42,4 +42,8 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'mg979/vim-visual-multi'
 
+" Language specific: elixir
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'mhinz/vim-mix-format'
+
 call vundle#end()

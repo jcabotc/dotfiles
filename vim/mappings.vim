@@ -5,8 +5,7 @@ let mapleader=','
 nmap <leader>v [vimrc]
 
 " Edit .vimrc and filetype configs
-nnoremap <silent> [vimrc]e :edit ~/.vimrc<CR>
-nnoremap <silent> [vimrc]le :edit ~/.vim/after/ftplugin<CR>
+nnoremap <silent> [vimrc]e :edit ~/.vim<CR> " TODO: Point to the repo root
 nnoremap <silent> [vimrc]s :source ~/.vimrc<CR>:nohlsearch<CR>:echo 'Vimrc sourced'<CR><ESC>
 
 " ======== Buffer ========
