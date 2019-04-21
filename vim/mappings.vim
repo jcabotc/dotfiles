@@ -26,9 +26,8 @@ nnoremap <silent> <ESC> :nohlsearch<CR><ESC>
 nmap <Leader>k :SplitjoinJoin<cr>
 nmap <Leader>j :SplitjoinSplit<cr>
 
-" TODO: Rethink this keys
 " Yankring
-let g:yankring_replace_n_pkey = 'K' " previous register
+let g:yankring_replace_n_pkey = 'K'     " previous register
 let g:yankring_replace_n_nkey = 'Q' " next register
 
 " Toggle comments
@@ -40,23 +39,21 @@ omap <leader>c <Plug>Commentary
 
 let g:VM_maps = {}
 
-" TODO: Rethink this mappings
-" Normal mapping overrides
-let g:VM_maps['Find Under'] = '<C-n>'
-let g:VM_maps['Find Subword Under'] = '<C-n>'
-let g:VM_maps['Select All'] = '<C-m>a'
-let g:VM_maps['Visual All'] = '<C-m>a'
-let g:VM_maps['Start Regex Search'] = '<C-m>r'
-let g:VM_maps['Visual Regex'] = '<C-m>r'
+" Enter multi-select mode from normal:
+let g:VM_maps['Find Under'] = '<C-n>' " Normal: Word under cursor
+let g:VM_maps['Select All'] = '<C-a>' " Normal: All words under cursor
 
-" TODO: Rethink this mappings
-" Multiple cursors mode overrides
-let g:VM_maps['Switch Mode'] = 'v'
-let g:VM_maps['Find Next'] = '<C-n>'
-let g:VM_maps['Skip Region'] = '<C-m>'
-let g:VM_maps['Remove Region'] = '<C-b>'
+" Enter multi-select mode from visual
+let g:VM_maps['Find Subword Under'] = '<C-n>' " Visual: Selection under cursor
+let g:VM_maps['Visual All'] = '<C-a>'         " Visual: All matches of selection under cursor
+
+" Multi-select mode mappings
+let g:VM_maps['Switch Mode'] = 'v'        " Cursor to region selector
+let g:VM_maps['Find Next'] = '<C-n>'      " Select nexta region
+let g:VM_maps['Alt Skip'] = '<C-m>'       " Skip current region
+let g:VM_maps['Remove Region'] = '<C-b>'  " Remove current region
 let g:VM_maps['Surround'] = 'S'
-let g:VM_maps['Numbers Append'] = 'K'
+let g:VM_maps['Numbers Append'] = '<C-e>'
 
 " ======== Splits ========
 

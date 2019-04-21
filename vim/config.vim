@@ -107,7 +107,7 @@ colorscheme solarized8
 set guifont=Menlo\ Regular:h15
 
 " Full screen
-set fu
+set fullscreen
 
 " Remove GUI toolbars, scrollbars, and split fill chars
 set fillchars=""
