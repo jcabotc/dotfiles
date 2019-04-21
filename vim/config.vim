@@ -92,7 +92,7 @@ let g:airline_section_y=''
 " Simplify current position section
 let g:airline_section_z='%l:%2v'
 
-" TODO: Improve NERDTree status
+" Empty nerdtree status line
 let g:NERDTreeStatusline=''
 
 " ======== Style ========

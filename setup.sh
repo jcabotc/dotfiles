@@ -19,27 +19,33 @@ backup_if_exists () {
     backup_path=$target_dir/$backup_file_name
 
     echo -n " ├─ Creating backup ($backup_file_name)..."
-    mv $path $backup_path
+    # mv $path $backup_path
     echo "${green}done${reset}"
   fi
 }
 
 create_symlink () {
   echo -n " └─ Creating symlink..."
-  ln -s $repo_dir/$1 $target_dir/$2
+  # ln -s $repo_dir/$1 $target_dir/$2
   echo "${green}done${reset}"
 }
 
-# Create .vimrc symlink
-echo "${bold}.vimrc${reset}"
-backup_if_exists ".vimrc"
-create_symlink "vimrc" ".vimrc"
+create_dotfile () {
+  echo "${bold}$1${reset}"
+  backup_if_exists $1
+  create_symlink $2 $1
+}
 
-# Create .vim/ symlink
-echo "${bold}.vim${reset}"
-backup_if_exists ".vim"
-create_symlink "vim" ".vim"
+install_vim_vundle_plugins() {
+  echo -n "Installing plugins..."
+  $(ex -E -s +PluginInstall +qall)
+  echo "${green}done${reset}"
+}
+
+create_dotfile "vimrc" ".vimrc"
+create_dotfile "vim" ".vim"
+
+install_vim_vundle_plugins
 
 # TODO: Install vundle?
-# TODO: Plugin install?
 # TODO: make vimproc
