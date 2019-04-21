@@ -21,21 +21,21 @@ backup_if_exists () {
     backup_path=$target_dir/$backup_file_name
 
     echo -n " ├─ Creating backup ($backup_file_name)..."
-    # mv $path $backup_path
+    mv $path $backup_path
     echo "${green}done${reset}"
   fi
 }
 
 create_symlink () {
   echo -n " └─ Creating symlink..."
-  # ln -s $repo_dir/$1 $target_dir/$2
+  ln -s $repo_dir/$1 $target_dir/$2
   echo "${green}done${reset}"
 }
 
 create_dotfile () {
   echo "${bold}$1${reset}"
-  backup_if_exists $1
-  create_symlink $2 $1
+  backup_if_exists $2
+  create_symlink $1 $2
 }
 
 install_vim_vundle() {
