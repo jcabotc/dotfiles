@@ -1,6 +1,8 @@
 #!/bin/bash
 
+red=$(tput setaf 1)
 green=$(tput setaf 2)
+yellow=$(tput setaf 3)
 bold=$(tput bold)
 reset=$(tput sgr0)
 
@@ -36,8 +38,19 @@ create_dotfile () {
   create_symlink $2 $1
 }
 
+install_vim_vundle() {
+  echo "Installing vundle..."
+  if [ -e ~/.vim/bundle/Vundle.vim ]
+  then
+    echo "${yellow}warning: already exists${reset}"
+  else
+    $(git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim)
+    echo "${green}done${reset}"
+  fi
+}
+
 install_vim_vundle_plugins() {
-  echo -n "Installing plugins..."
+  echo -n "Installing vundle plugins..."
   $(ex -E -s +PluginInstall +qall)
   echo "${green}done${reset}"
 }
@@ -45,7 +58,7 @@ install_vim_vundle_plugins() {
 create_dotfile "vimrc" ".vimrc"
 create_dotfile "vim" ".vim"
 
+install_vim_vundle
 install_vim_vundle_plugins
 
-# TODO: Install vundle?
 # TODO: make vimproc
