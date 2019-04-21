@@ -55,10 +55,21 @@ install_vim_vundle_plugins() {
   echo "${green}done${reset}"
 }
 
+make_vimproc_plugin () {
+  echo "Making vimproc plugin..."
+  if [ -e ~/.vim/bundle/vimproc.vim/lib/vimproc_mac.so ]
+  then
+    echo "${yellow}warning: make already ran for vimproc${reset}"
+  else
+    cd ~/.vim/bundle/vimproc.vim
+    make
+    echo "${green}done${reset}"
+  fi
+}
+
 create_dotfile "vimrc" ".vimrc"
 create_dotfile "vim" ".vim"
 
 install_vim_vundle
 install_vim_vundle_plugins
-
-# TODO: make vimproc
+make_vimproc_plugin
