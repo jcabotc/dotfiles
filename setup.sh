@@ -51,7 +51,7 @@ install_vim_vundle() {
 
 install_vim_vundle_plugins() {
   echo -n "Installing vundle plugins..."
-  $(ex -E -s +PluginInstall +qall)
+  $(vim +BundleInstall +qall 2&> /dev/null)
   echo "${green}done${reset}"
 }
 
