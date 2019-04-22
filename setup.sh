@@ -70,6 +70,9 @@ make_vimproc_plugin () {
 create_dotfile "vimrc" ".vimrc"
 create_dotfile "vim" ".vim"
 
+echo
 install_vim_vundle
+echo
 install_vim_vundle_plugins
+echo
 make_vimproc_plugin
