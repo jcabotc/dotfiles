@@ -42,14 +42,11 @@ nmap <leader>cc V<leader>c
 
 let g:VM_maps = {}
 
-" Enter multi-select mode from normal:
-let g:VM_maps['Find Under'] = '<C-n>' " Normal: Word under cursor
-let g:VM_maps['Select All'] = '<C-a>' " Normal: All words under cursor
+" Enter multi-select mode
+let g:VM_maps['Find Under'] = '<C-n>'         " From normal
+let g:VM_maps['Find Subword Under'] = '<C-n>' " From visual
 
-" Enter multi-select mode from visual
-let g:VM_maps['Find Subword Under'] = '<C-n>' " Visual: Selection under cursor
-let g:VM_maps['Visual All'] = '<C-a>'         " Visual: All matches of selection under cursor
-
+" TODO: Investigate why `s` is not working in multi-select mode
 " Multi-select mode mappings
 let g:VM_maps['Switch Mode'] = 'v'        " Cursor to region selector
 let g:VM_maps['Find Next'] = '<C-n>'      " Select nexta region

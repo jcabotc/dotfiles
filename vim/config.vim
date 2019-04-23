@@ -73,7 +73,7 @@ set nobackup
 set noswapfile
 
 " Autoread changed files
-set noswapfile
+set autoread
 
 " Autosave files
 let g:auto_save=1
@@ -102,8 +102,8 @@ let g:NERDTreeStatusline=''
 " - solarized8
 " - apprentice
 " - one (light and dark backgrounds)
-colorscheme one
-set background=light
+colorscheme apprentice
+set background=dark
 
 " Font
 set guifont=Menlo\ Regular:h15
