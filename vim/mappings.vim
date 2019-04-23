@@ -27,13 +27,16 @@ nmap <Leader>k :SplitjoinJoin<cr>
 nmap <Leader>j :SplitjoinSplit<cr>
 
 " Yankring
-let g:yankring_replace_n_pkey = 'K'     " previous register
+let g:yankring_replace_n_pkey = 'K' " previous register
 let g:yankring_replace_n_nkey = 'Q' " next register
 
-" Toggle comments
+" Toggle comments on text objects
 nmap <leader>c <Plug>Commentary
 xmap <leader>c <Plug>Commentary
 omap <leader>c <Plug>Commentary
+
+" Toggle comment on current line
+nmap <leader>cc V<leader>c
 
 " ======== Multiple cursors ========
 

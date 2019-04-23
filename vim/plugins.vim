@@ -28,6 +28,7 @@ Plugin '907th/vim-auto-save'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'romainl/Apprentice'
+Plugin 'rakr/vim-one'
 
 " Text objects
 Plugin 'fvictorio/vim-textobj-backticks' " i` a`
@@ -42,6 +43,7 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'mg979/vim-visual-multi'
 Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-endwise'
 
 " Language specific: elixir
 Plugin 'elixir-editors/vim-elixir'
