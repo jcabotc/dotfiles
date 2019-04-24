@@ -118,3 +118,21 @@ nnoremap <silent> [git]r :Gread~0<CR>
 
 " Copy current file path to system clipboard
 nmap <silent> <leader>cp :let @*=expand("%")<CR>:echo 'Path copied to system clipboard'<CR>
+
+" ======== Style ========
+
+function NextColorscheme()
+  let index = -1
+
+  if exists('g:colors_name')
+    let pair = [g:colors_name, &background]
+    let index = index(g:colorschemes, pair)
+  endif
+
+  let next_index = float2nr(fmod(index + 1, len(g:colorschemes)))
+  let [scheme, bg] = g:colorschemes[next_index]
+  execute 'colorscheme ' . scheme
+  execute 'set background=' . bg
+endfunction
+
+map <leader>s :call NextColorscheme()<CR>

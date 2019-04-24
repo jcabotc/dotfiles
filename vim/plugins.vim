@@ -25,9 +25,7 @@ Plugin 'bling/vim-airline'
 Plugin '907th/vim-auto-save'
 
 " Colorschemes
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'lifepillar/vim-solarized8'
-Plugin 'romainl/Apprentice'
 Plugin 'rakr/vim-one'
 
 " Text objects

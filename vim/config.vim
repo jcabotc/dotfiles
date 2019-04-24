@@ -102,8 +102,17 @@ let g:NERDTreeStatusline=''
 " - solarized8
 " - apprentice
 " - one (light and dark backgrounds)
-colorscheme apprentice
-set background=dark
+
+" List of colorschemes to rotate between
+let g:colorschemes = [
+\  ['solarized8', 'dark'],
+\  ['one', 'light']
+\]
+
+" Set first colorscheme on startup
+let [scheme, bg] = colorschemes[0]
+execute 'colorscheme ' . scheme
+execute 'set background=' . bg
 
 " Font
 set guifont=Menlo\ Regular:h15
