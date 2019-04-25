@@ -13,6 +13,9 @@ nnoremap <silent> [vimrc]s :source ~/.vimrc<CR>:nohlsearch<CR>:echo 'Vimrc sourc
 " Make Y act like other capitals
 map Y y$
 
+" Scroll to put the current line at the center of the screen
+noremap <space> zz
+
 " Turn off search highlight on ESC
 nnoremap <silent> <ESC> :nohlsearch<CR><ESC>
 
@@ -32,15 +35,13 @@ let g:yankring_replace_n_nkey = 'Q' " next register
 
 " ======== Comments ========
 
-nmap <leader>c [comment]
-
 " Toggle on text objects
-nmap [comment] <Plug>Commentary
-xmap [comment] <Plug>Commentary
-omap [comment] <Plug>Commentary
+nmap <leader>c <Plug>Commentary
+xmap <leader>c <Plug>Commentary
+omap <leader>c <Plug>Commentary
 
 " Toggle on current line
-nmap [comment]c <leader>is
+nmap <leader>cc V<leader>c
 
 " ======== Multiple cursors ========
 
