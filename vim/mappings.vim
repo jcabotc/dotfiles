@@ -91,6 +91,8 @@ function RegexMatcher()
   call unite#filters#matcher_default#use(['matcher_regexp'])
 endfunction
 
+" TODO: Improve general unite experience (open below, rethink matchers, supress buffer exit error, etc)
+
 " Files by exact path match
 nnoremap <silent> <leader>ee :call ContextMatcher()<CR>:<C-u>Unite -start-insert -buffer-name=project file_rec<CR>
 
