@@ -11,16 +11,16 @@ nnoremap <silent> [vimrc]s :source ~/.vimrc<CR>:nohlsearch<CR>:echo 'Vimrc sourc
 " ======== Buffer ========
 
 " Make Y act like other capitals
-map Y y$
+nmap Y y$
 
 " Scroll to put the current line at the center of the screen
-noremap <space> zz
+nnoremap <space> zz
 
 " Turn off search highlight on ESC
 nnoremap <silent> <ESC> :nohlsearch<CR><ESC>
 
 " Coercion (abolish plugin)
-"   crc: camel_case
+"   crc: camelCase
 "   crm: MixedCase
 "   crs: snake_case
 "   cru: UPPER_CASE
