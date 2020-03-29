@@ -105,7 +105,7 @@ let g:NERDTreeStatusline=''
 
 " List of colorschemes to rotate between
 let g:colorschemes = [
-\  ['solarized8', 'dark'],
+\  ['gruvbox', 'dark'],
 \  ['one', 'light']
 \]
 

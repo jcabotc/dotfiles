@@ -26,6 +26,7 @@ Plugin '907th/vim-auto-save'
 
 " Colorschemes
 Plugin 'lifepillar/vim-solarized8'
+Plugin 'morhetz/gruvbox'
 Plugin 'rakr/vim-one'
 
 " Text objects
@@ -46,5 +47,13 @@ Plugin 'tpope/vim-endwise'
 " Language specific: elixir
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'mhinz/vim-mix-format'
+
+" Language specific: haskell
+" Plugin 'dense-analysis/ale'
+Plugin 'eagletmt/ghcmod-vim'
+
+" TODO: Try the following plugins:
+" https://github.com/neoclide/coc.nvim (autocomplete with elixir-ls)
+" https://github.com/liuchengxu/vista.vim (current file symbols)
 
 call vundle#end()
