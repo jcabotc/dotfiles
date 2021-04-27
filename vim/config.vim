@@ -44,6 +44,7 @@ silent !mkdir $HOME/.vim/tmp/yankring > /dev/null 2>&1
 let g:yankring_history_dir = '~/.vim/tmp/yankring'
 
 " Autocomplete
+set updatetime=750 " Time to trigger popups (default 4000)
 let g:coc_global_extensions = ['coc-tsserver']
 
 " ======== Splits ========
