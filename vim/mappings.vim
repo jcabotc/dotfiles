@@ -33,6 +33,26 @@ nmap <Leader>j :SplitjoinSplit<cr>
 let g:yankring_replace_n_pkey = 'K' " previous register
 let g:yankring_replace_n_nkey = 'Q' " next register
 
+" ======== Language server ========
+
+" Show documentation for the word under the cursor
+nnoremap <silent> <leader>d :call CocAction('doHover')<CR>
+
+" Jump to next or previous error
+nmap <silent> <leader>sp <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>sn <Plug>(coc-diagnostic-next)
+
+" Fix error under the cursor
+nmap <leader>sf <Plug>(coc-codeaction)
+
+" Rename symbol
+nmap <leader>sr <Plug>(coc-rename)
+
+" Go to
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gt <Plug>(coc-type-definition)
+nmap <silent> <leader>gr <Plug>(coc-references)
+
 " ======== Comments ========
 
 " Toggle on text objects
@@ -121,21 +141,3 @@ nnoremap <silent> [git]r :Gread~0<CR>
 
 " Copy current file path to system clipboard
 nmap <silent> <leader>cp :let @*=expand("%")<CR>:echo 'Path copied to system clipboard'<CR>
-
-" ======== Style ========
-
-function NextColorscheme()
-  let index = -1
-
-  if exists('g:colors_name')
-    let pair = [g:colors_name, &background]
-    let index = index(g:colorschemes, pair)
-  endif
-
-  let next_index = float2nr(fmod(index + 1, len(g:colorschemes)))
-  let [scheme, bg] = g:colorschemes[next_index]
-  execute 'colorscheme ' . scheme
-  execute 'set background=' . bg
-endfunction
-
-map <leader>s :call NextColorscheme()<CR>

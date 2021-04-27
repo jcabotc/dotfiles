@@ -44,16 +44,19 @@ Plugin 'mg979/vim-visual-multi'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-endwise'
 
+" Autocomplete
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+" https://github.com/neoclide/coc.nvim (autocomplete with elixir-ls)
+
 " Language specific: elixir
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'mhinz/vim-mix-format'
+" Plugin 'elixir-editors/vim-elixir'
+" Plugin 'mhinz/vim-mix-format'
 
 " Language specific: haskell
 " Plugin 'dense-analysis/ale'
 " Plugin 'eagletmt/ghcmod-vim'
 
 " TODO: Try the following plugins:
-" https://github.com/neoclide/coc.nvim (autocomplete with elixir-ls)
 " https://github.com/liuchengxu/vista.vim (current file symbols)
 
 call vundle#end()
