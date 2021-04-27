@@ -12,6 +12,7 @@ set nu
 set nowrap
 set scrolloff=4 " Prevent cursor from reaching screen limits
 set showmatch   " Matching brackets
+set re=0        " Don't use legacy regular expressions engine (too slow for syntax highlighting)
 
 " Identation (language-specific detail in filetype configs)
 set tabstop=2
@@ -117,8 +118,8 @@ execute 'set background=' . bg
 " Font
 set guifont=Menlo\ Regular:h15
 
-" Full screen
-set fullscreen
+" Full screen (Macvim only)
+" set fullscreen
 
 " Remove GUI toolbars, scrollbars, and split fill chars
 set fillchars=""

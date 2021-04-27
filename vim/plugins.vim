@@ -50,7 +50,7 @@ Plugin 'mhinz/vim-mix-format'
 
 " Language specific: haskell
 " Plugin 'dense-analysis/ale'
-Plugin 'eagletmt/ghcmod-vim'
+" Plugin 'eagletmt/ghcmod-vim'
 
 " TODO: Try the following plugins:
 " https://github.com/neoclide/coc.nvim (autocomplete with elixir-ls)
