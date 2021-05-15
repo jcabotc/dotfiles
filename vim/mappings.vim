@@ -10,6 +10,9 @@ nnoremap <silent> [vimrc]s :source ~/.vimrc<CR>:nohlsearch<CR>:echo 'Vimrc sourc
 
 " ======== Buffer ========
 
+" Simple save
+nmap <leader>w :w<CR>
+
 " Make Y act like other capitals
 nmap Y y$
 
@@ -37,6 +40,10 @@ let g:yankring_replace_n_nkey = 'Q' " next register
 
 " Show documentation for the word under the cursor
 nnoremap <silent> <leader>d :call CocAction('doHover')<CR>
+nnoremap <silent> <leader>D :call CocAction('doHover', 'split')<CR>
+
+" Open diagnostic on another split
+nnoremap <silent> <leader>e :call CocAction('diagnosticPreview')<CR>
 
 " Jump to next or previous error
 nmap <silent> <leader>sp <Plug>(coc-diagnostic-prev)
@@ -75,8 +82,8 @@ let g:VM_maps['Find Subword Under'] = '<C-n>' " From visual
 " TODO: Investigate why `s` is not working in multi-select mode
 " Multi-select mode mappings
 let g:VM_maps['Switch Mode'] = 'v'        " Cursor to region selector
-let g:VM_maps['Find Next'] = '<C-n>'      " Select nexta region
-let g:VM_maps['Alt Skip'] = '<C-m>'       " Skip current region
+let g:VM_maps['Find Next'] = '<C-n>'      " Select next region
+let g:VM_maps['Skip Region'] = '<C-m>'    " Skip current region
 let g:VM_maps['Remove Region'] = '<C-b>'  " Remove current region
 let g:VM_maps['Surround'] = 'S'
 let g:VM_maps['Numbers Append'] = '<C-e>'

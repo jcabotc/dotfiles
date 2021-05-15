@@ -47,6 +47,15 @@ let g:yankring_history_dir = '~/.vim/tmp/yankring'
 set updatetime=750 " Time to trigger popups (default 4000)
 let g:coc_global_extensions = ['coc-tsserver']
 
+function! s:check_back_space() abort " Use tab to autocomplete
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+
 " ======== Splits ========
 
 " New splits right to bottom
@@ -80,9 +89,9 @@ set noswapfile
 " Autoread changed files
 set autoread
 
-" Autosave files
-let g:auto_save=1
-let g:auto_save_silent=1
+" Autosave files (disabled to trigger less Coc events)
+" let g:auto_save=1
+" let g:auto_save_silent=1
 
 " ======== Status bar ========
 

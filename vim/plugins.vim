@@ -1,62 +1,67 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 " Libs
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-repeat'
-Plugin 'kana/vim-textobj-user'
-Plugin 'Shougo/vimproc.vim' " run 'make' on vimproc directory
+Plug 'VundleVim/Vundle.vim'
+Plug 'tpope/vim-repeat'
+Plug 'kana/vim-textobj-user'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 " Project tree and finding files
-Plugin 'scrooloose/nerdtree'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/neomru.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
 
 " Git
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Status bar
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 " Auto save files
-Plugin '907th/vim-auto-save'
+Plug '907th/vim-auto-save'
 
 " Colorschemes
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'morhetz/gruvbox'
-Plugin 'rakr/vim-one'
+Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
 
 " Text objects
-Plugin 'fvictorio/vim-textobj-backticks' " i` a`
-Plugin 'glts/vim-textobj-comment'        " ic ac
-Plugin 'kana/vim-textobj-entire'         " ie ae
+" - i` a`
+Plug 'fvictorio/vim-textobj-backticks'
+" - ic ac
+Plug 'glts/vim-textobj-comment'
+" - ie ae
+Plug 'kana/vim-textobj-entire'
 
 " New commands
-Plugin 'vim-scripts/YankRing.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-abolish' " word coercions
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'mg979/vim-visual-multi'
-Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-endwise'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish' " word coercions
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'tpope/vim-commentary'
+Plug 'mg979/vim-visual-multi'
+" Plug 'ervandew/supertab'
+Plug 'tpope/vim-endwise'
 
 " Autocomplete
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " https://github.com/neoclide/coc.nvim (autocomplete with elixir-ls)
 
+" Language specific: Typescript
+Plug 'tasn/vim-tsx'
+
 " Language specific: elixir
-" Plugin 'elixir-editors/vim-elixir'
-" Plugin 'mhinz/vim-mix-format'
+" Plug 'elixir-editors/vim-elixir'
+" Plug 'mhinz/vim-mix-format'
 
 " Language specific: haskell
-" Plugin 'dense-analysis/ale'
-" Plugin 'eagletmt/ghcmod-vim'
+" Plug 'dense-analysis/ale'
+" Plug 'eagletmt/ghcmod-vim'
 
 " TODO: Try the following plugins:
 " https://github.com/liuchengxu/vista.vim (current file symbols)
 
-call vundle#end()
+call plug#end()

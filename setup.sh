@@ -38,41 +38,27 @@ create_dotfile () {
   create_symlink $1 $2
 }
 
-install_vim_vundle() {
-  echo "Installing vundle..."
-  if [ -e ~/.vim/bundle/Vundle.vim ]
+install_vim_plug() {
+  echo "Installing vim-plug..."
+  if [ -e ~/.vim/autoload/plug.vim ]
   then
     echo "${yellow}warning: already exists${reset}"
   else
-    $(git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim)
+    $(curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)
     echo "${green}done${reset}"
   fi
 }
 
-install_vim_vundle_plugins() {
-  echo -n "Installing vundle plugins..."
-  $(vim +BundleInstall +qall 2&> /dev/null)
+install_vim_plug_plugins() {
+  echo -n "Installing vim-plug plugins..."
+  $(vim -es -u vimrc -i NONE -c "PlugInstall" -c "qa")
   echo "${green}done${reset}"
-}
-
-make_vimproc_plugin () {
-  echo "Making vimproc plugin..."
-  if [ -e ~/.vim/bundle/vimproc.vim/lib/vimproc_mac.so ]
-  then
-    echo "${yellow}warning: make already ran for vimproc${reset}"
-  else
-    cd ~/.vim/bundle/vimproc.vim
-    make
-    echo "${green}done${reset}"
-  fi
 }
 
 create_dotfile "vimrc" ".vimrc"
 create_dotfile "vim" ".vim"
 
 echo
-install_vim_vundle
+install_vim_plug
 echo
-install_vim_vundle_plugins
-echo
-make_vimproc_plugin
+install_vim_plug_plugins

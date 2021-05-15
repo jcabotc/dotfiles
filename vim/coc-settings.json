@@ -6,5 +6,6 @@
     "json",
     "typescript",
     "typescript.tsx"
-  ]
+  ],
+  "tsserver.maxTsServerMemory": 6144
 }
