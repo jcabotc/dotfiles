@@ -7,5 +7,5 @@
     "typescript",
     "typescript.tsx"
   ],
-  "tsserver.maxTsServerMemory": 6144
+  "tsserver.maxTsServerMemory": 10240
 }

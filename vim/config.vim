@@ -5,6 +5,46 @@ syntax on
 " Better command line completion
 set wildmenu
 
+" ======== Style ========
+
+" Colorschemes
+" - jellybeans
+" - solarized8
+" - apprentice
+" - one (light and dark backgrounds)
+
+" List of colorschemes to rotate between
+let g:colorschemes = [
+\  ['gruvbox', 'dark'],
+\  ['one', 'light']
+\]
+
+" Set first colorscheme on startup
+let [scheme, bg] = colorschemes[0]
+execute 'colorscheme ' . scheme
+execute 'set background=' . bg
+
+" Font
+set guifont=Menlo\ Regular:h15
+
+" Full screen (Macvim only)
+" set fullscreen
+
+" Remove GUI toolbars, scrollbars, and split fill chars
+set fillchars=""
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+
+" Disable beeping
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+" Treat json as jsonc
+augroup JsonToJsonc
+    autocmd! FileType json set filetype=jsonc
+augroup END
+
 " ======== Buffer ========
 
 " Style
@@ -55,6 +95,11 @@ inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
   \ <SID>check_back_space() ? "\<TAB>" :
   \ coc#refresh()
+
+hi CocUnderline gui=underline cterm=underline term=underline
+hi CocErrorHighlight gui=underline cterm=underline term=underline
+hi CocWarningHighlight gui=underline cterm=underline term=underline
+hi CocInfoHighlight gui=underline cterm=underline term=underline
 
 " ======== Splits ========
 
@@ -108,38 +153,3 @@ let g:airline_section_z='%l:%2v'
 
 " Empty nerdtree status line
 let g:NERDTreeStatusline=''
-
-" ======== Style ========
-
-" Colorschemes
-" - jellybeans
-" - solarized8
-" - apprentice
-" - one (light and dark backgrounds)
-
-" List of colorschemes to rotate between
-let g:colorschemes = [
-\  ['gruvbox', 'dark'],
-\  ['one', 'light']
-\]
-
-" Set first colorscheme on startup
-let [scheme, bg] = colorschemes[0]
-execute 'colorscheme ' . scheme
-execute 'set background=' . bg
-
-" Font
-set guifont=Menlo\ Regular:h15
-
-" Full screen (Macvim only)
-" set fullscreen
-
-" Remove GUI toolbars, scrollbars, and split fill chars
-set fillchars=""
-set guioptions-=T
-set guioptions-=r
-set guioptions-=L
-
-" Disable beeping
-set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=

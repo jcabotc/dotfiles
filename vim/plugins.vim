@@ -13,6 +13,8 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim' "Requires bat for syntax highlighting: `sudo apt install bat`
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -23,18 +25,16 @@ Plug 'bling/vim-airline'
 " Auto save files
 Plug '907th/vim-auto-save'
 
-" Colorschemes
+" Colorschemes & Style
 Plug 'lifepillar/vim-solarized8'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
+Plug 'yggdroot/indentline'
 
 " Text objects
-" - i` a`
-Plug 'fvictorio/vim-textobj-backticks'
-" - ic ac
-Plug 'glts/vim-textobj-comment'
-" - ie ae
-Plug 'kana/vim-textobj-entire'
+Plug 'fvictorio/vim-textobj-backticks' " i` a`
+Plug 'glts/vim-textobj-comment'        " ic ac
+Plug 'kana/vim-textobj-entire'         " ie ae
 
 " New commands
 Plug 'vim-scripts/YankRing.vim'
@@ -43,12 +43,13 @@ Plug 'tpope/vim-abolish' " word coercions
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-commentary'
 Plug 'mg979/vim-visual-multi'
-" Plug 'ervandew/supertab'
 Plug 'tpope/vim-endwise'
 
 " Autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" https://github.com/neoclide/coc.nvim (autocomplete with elixir-ls)
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+" Language specific: Json
+Plug 'neoclide/jsonc.vim'
 
 " Language specific: Typescript
 Plug 'tasn/vim-tsx'
@@ -60,8 +61,5 @@ Plug 'tasn/vim-tsx'
 " Language specific: haskell
 " Plug 'dense-analysis/ale'
 " Plug 'eagletmt/ghcmod-vim'
-
-" TODO: Try the following plugins:
-" https://github.com/liuchengxu/vista.vim (current file symbols)
 
 call plug#end()
