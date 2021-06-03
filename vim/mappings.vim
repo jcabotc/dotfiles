@@ -44,8 +44,9 @@ nmap <leader>it :IndentLinesToggle<CR>
 nnoremap <silent> <leader>d :call CocActionAsync('doHover')<CR>
 nnoremap <silent> <leader>D :call CocActionAsync('doHover', 'split')<CR>
 
-" Open diagnostic on another split
+" Open current diagnostic on another split
 nnoremap <silent> <leader>se :call CocAction('diagnosticPreview')<CR>
+nnoremap <silent> <leader>sd :CocDiagnostics<CR>
 
 " Jump to next or previous error
 nmap <silent> <leader>sp <Plug>(coc-diagnostic-prev)

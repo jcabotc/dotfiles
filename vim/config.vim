@@ -31,10 +31,19 @@ set guifont=Menlo\ Regular:h15
 " set fullscreen
 
 " Remove GUI toolbars, scrollbars, and split fill chars
-set fillchars=""
+set fillchars=
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
+" Hide end of buffer symbols by painting them with background color
+" Current background color: `:echo synIDattr(hlID('Normal'), 'bg')`
+hi EndOfBuffer ctermfg=235
+
+" Highlight current line number only
+" Current background color: `:echo synIDattr(hlID('Normal'), 'bg')`
+set cursorline
+hi CursorLine ctermbg=235
+hi CursorLineNR ctermbg=235 ctermfg=251
 
 " Disable beeping
 set noerrorbells visualbell t_vb=
@@ -61,6 +70,8 @@ set shiftround
 set autoindent
 set smarttab
 set expandtab
+let g:indentLine_enabled = 0
+let g:indentLine_char_list = ['|', '┆']
 
 " Search
 set hlsearch   " Highlighted
@@ -145,11 +156,33 @@ let g:airline_skip_empty_sections = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
+" Shorten mode names
+let g:airline_mode_map = {
+    \ '__'     : '-',
+    \ 'c'      : 'C',
+    \ 'i'      : 'I',
+    \ 'ic'     : 'I',
+    \ 'ix'     : 'I',
+    \ 'n'      : 'N',
+    \ 'multi'  : 'M',
+    \ 'ni'     : 'N',
+    \ 'no'     : 'N',
+    \ 'R'      : 'R',
+    \ 'Rv'     : 'R',
+    \ 's'      : 'S',
+    \ 'S'      : 'S',
+    \ ''     : 'S',
+    \ 't'      : 'T',
+    \ 'v'      : 'V',
+    \ 'V'      : 'V',
+    \ ''     : 'V',
+    \ }
+
+" Remove git branch symbol
+let g:airline_symbols.branch = ''
 " Empty encoding section
 let g:airline_section_y=''
-
-" Simplify current position section
-let g:airline_section_z='%l:%2v'
-
+" Empty position section
+let g:airline_section_z=''
 " Empty nerdtree status line
 let g:NERDTreeStatusline=''
