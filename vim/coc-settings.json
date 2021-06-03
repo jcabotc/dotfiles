@@ -7,5 +7,6 @@
     "typescript",
     "typescript.tsx"
   ],
+  "prettier.disableSuccessMessage": true,
   "tsserver.maxTsServerMemory": 10240
 }

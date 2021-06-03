@@ -179,7 +179,12 @@ let g:airline_mode_map = {
     \ }
 
 " Remove git branch symbol
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 let g:airline_symbols.branch = ''
+" Disable coc info
+let g:airline#extensions#coc#enabled = 0
 " Empty encoding section
 let g:airline_section_y=''
 " Empty position section
