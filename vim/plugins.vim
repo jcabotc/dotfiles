@@ -52,7 +52,10 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'neoclide/jsonc.vim'
 
 " Language specific: Typescript
-Plug 'tasn/vim-tsx'
+Plug 'pangloss/vim-javascript'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'tasn/vim-jsx-typescript'
 
 " Language specific: elixir
 " Plug 'elixir-editors/vim-elixir'

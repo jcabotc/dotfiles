@@ -96,7 +96,7 @@ let g:yankring_history_dir = '~/.vim/tmp/yankring'
 
 " Autocomplete
 set updatetime=750 " Time to trigger popups (default 4000)
-let g:coc_global_extensions = ['coc-tsserver']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-prettier', 'coc-highlight', 'coc-pairs']
 
 function! s:check_back_space() abort " Use tab to autocomplete
   let col = col('.') - 1
@@ -132,9 +132,8 @@ let NERDTreeMinimalUI=1
 
 " ======== Search files ========
 
-" Full text search by regex match (using ag; requires vimproc)
-let g:unite_source_grep_command="ag"
-let g:unite_source_grep_default_opts="-i --nocolor --nogroup"
+" When using :Ag, search only in file contents, not in file paths
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 " ======== Filesystem ========
 

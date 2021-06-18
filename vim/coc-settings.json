@@ -1,4 +1,5 @@
 {
+  "diagnostic.enableMessage": "jump",
   "coc.preferences.formatOnSaveFiletypes": [
     "html",
     "javascript",

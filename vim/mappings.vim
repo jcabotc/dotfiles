@@ -1,61 +1,50 @@
 let mapleader=','
 
-" ======== Manage vim config ========
+" ======== Vim config ========
 
 " Edit .vimrc and filetype configs
 nnoremap <silent> <leader>ve :edit ~/.vim<CR>
 nnoremap <silent> <leader>vs :source ~/.vimrc<CR>:nohlsearch<CR>:echo 'Vimrc sourced'<CR><ESC>
 
-" ======== Buffer ========
+" ======== Basics ========
 
 " Simple save and quit
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 
-" Make Y act like other capitals
-nmap Y y$
-
-" Scroll to put the current line at the center of the screen
-nnoremap <space> zz
-
 " Turn off search highlight on ESC
 nnoremap <silent> <ESC> :nohlsearch<CR><ESC>
 
-" Coercion (abolish plugin)
-"   crc: camelCase
-"   crm: MixedCase
-"   crs: snake_case
-"   cru: UPPER_CASE
-
-" Splitjoin
-nmap <Leader>k :SplitjoinJoin<cr>
-nmap <Leader>j :SplitjoinSplit<cr>
+" Make Y act like other capitals
+nmap Y y$
 
 " Yankring
 let g:yankring_replace_n_pkey = 'K' " previous register
 let g:yankring_replace_n_nkey = 'Q' " next register
+
+" Scroll to put the current line at the center of the screen
+nnoremap <space> zz
 
 " Toggle indent guides
 nmap <leader>it :IndentLinesToggle<CR>
 
 " ======== Language server ========
 
-" Show documentation for the word under the cursor
-nnoremap <silent> <leader>d :call CocActionAsync('doHover')<CR>
-nnoremap <silent> <leader>D :call CocActionAsync('doHover', 'split')<CR>
+" Documentation for the word under the cursor
+nmap <silent> <leader>d :call CocActionAsync('doHover')<CR>
+nmap <silent> <leader>D :call CocActionAsync('doHover', 'split')<CR>
+" Diagnostics for the word under the cursor
+nmap <silent> <Leader>e :call CocAction('diagnosticInfo')<CR>
+nmap <silent> <leader>E :call CocAction('diagnosticPreview')<CR>
 
-" Open current diagnostic on another split
-nnoremap <silent> <leader>se :call CocAction('diagnosticPreview')<CR>
-nnoremap <silent> <leader>sd :CocDiagnostics<CR>
-
-" Jump to next or previous error
+" Diagnostics navigation
+nmap <silent> <leader>sd :CocDiagnostics<CR>
 nmap <silent> <leader>sp <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>sn <Plug>(coc-diagnostic-next)
 
-" Fix error under the cursor
+" Suggest fixes for the diagnostic under the cursor (and others)
 nmap <leader>sf <Plug>(coc-codeaction)
-
-" Rename symbol
+" Rename symbol under the cursor
 nmap <leader>sr <Plug>(coc-rename)
 
 " Go to
@@ -64,13 +53,27 @@ nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> <leader>gr <Plug>(coc-references)
 
+" Show server status
+nmap <silent> <leader>ss :echo CocAction('services')<CR>
+
+" ======== New commands ========
+
+" Coercion (abolish plugin)
+" crc: camelCase
+" crm: MixedCase
+" crs: snake_case
+" cru: UPPER_CASE
+
+" Splitjoin
+nmap <Leader>k :SplitjoinJoin<cr>
+nmap <Leader>j :SplitjoinSplit<cr>
+
 " ======== Comments ========
 
 " Toggle on text objects
 nmap <leader>c <Plug>Commentary
 xmap <leader>c <Plug>Commentary
 omap <leader>c <Plug>Commentary
-
 " Toggle on current line
 nmap <leader>cc V<leader>c
 
@@ -82,9 +85,8 @@ let g:VM_maps = {}
 let g:VM_maps['Find Under'] = '<C-n>'         " From normal
 let g:VM_maps['Find Subword Under'] = '<C-n>' " From visual
 
-" TODO: Investigate why `s` is not working in multi-select mode
 " Multi-select mode mappings
-let g:VM_maps['Switch Mode'] = 'v'        " Cursor to region selector
+let g:VM_maps['Switch Mode'] = 'v'        " Multi-normal to multi-visual
 let g:VM_maps['Find Next'] = '<C-n>'      " Select next region
 let g:VM_maps['Skip Region'] = '<C-m>'    " Skip current region
 let g:VM_maps['Remove Region'] = '<C-b>'  " Remove current region
@@ -93,13 +95,12 @@ let g:VM_maps['Numbers Append'] = '<C-e>'
 
 " ======== Splits ========
 
-" Move between splits
+" Navigate
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <C-h> <C-W>h
-
-" Resize splits
+" Resize
 nnoremap <leader>rw :vertical resize +5<CR>
 nnoremap <leader>rW :vertical resize -5<CR>
 nnoremap <leader>rh :resize +5<CR>
@@ -109,45 +110,54 @@ nnoremap <leader>rH :resize -5<CR>
 
 " Toggle tree
 nnoremap <leader>n :NERDTreeToggle<CR>
-
 " Reveal current file
 nnoremap <leader>cn :NERDTreeFind<CR>
 
 " ======== Search files ========
 
-" Files by fuzzy path match
-nnoremap <leader>e :Files<CR>
+" Fuzzy file match
+nnoremap <leader>ff :Files<CR>
+" Recent file match
+nnoremap <leader>fh :History<CR>
+" Full text match
+nnoremap <leader>fi :Ag<CR>
 
-" Recent files by exact match
-nnoremap <leader>m :History<CR>
-
-" Full text search by regex
-nnoremap <leader>f :Ag<CR>
+" C-p: Previous search pattern
+" C-n: Next search pattern
 
 " ======== Git ========
 
-" Git status (-: stage/unstage, =: show diff)
-nnoremap <silent> <leader>ts :Gstatus<CR>
+" Git status
+nnoremap <silent> <leader>ts :Git status<CR>
+" s: stage
+" u: unstage
+" =: show diff
+" cc: commit
+" ca: amend commit
 
 " On the current file
-nnoremap <silent> <leader>tb :Gblame<CR>
+nnoremap <silent> <leader>tb :Git blame<CR>
 nnoremap <silent> <leader>td :Gvdiff<CR>
-nnoremap <silent> <leader>tr :Gread~0<CR>
+nnoremap <silent> <leader>tr :Gread<CR>
 
-" ======== Filesystem ========
+" ======== Mac ssh ========
 
-" Copy current file path to system clipboard
-nmap <silent> <leader>cp :let @*=expand("%")<CR>:echo 'Path copied to system clipboard'<CR>
+" Set visual selection to mac's clipboard
+xnoremap <leader>m y<esc>:'<,'>call CopyYankedToRemote()<CR>
 
-" ======== SSH ========
+function CopyYankedToRemote() range
+  let originalPosition = getpos(".")
+  echo system('echo -n ' . shellescape(@") . '| ssh mac pbcopy')
+  echo "Selection to mac clipboard"
+  call setpos('.', originalPosition)
+endfunction
 
-" Send visual selection to remote clipboard
+" Set current file path to mac's clipboard
+nnoremap <leader>mf :call CopyCurrentFilePathToRemote()<CR>
 
-" vmap yr :call system("ssh $machineA_IP pbcopy", @*)<CR>
-" vmap <leader>rc :<,'>:w !"ssh mac pbcopy"<CR>
-" xnoremap <leader>rc <esc>:'<,'>:w !ssh mac pbcopy<CR>
-xnoremap <leader>sy y<esc>:call CopyYankedToRemote()<CR>
-
-function CopyYankedToRemote() 
-  execute '!echo "' . @" . '" | ssh mac pbcopy'
+function CopyCurrentFilePathToRemote() range
+  let originalPosition = getpos(".")
+  echo system('echo -n ' . shellescape(expand("%")) . '| ssh mac pbcopy')
+  echo "Current path to mac clipboard"
+  call setpos('.', originalPosition)
 endfunction
