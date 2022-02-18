@@ -3,10 +3,18 @@ let mapleader=','
 " ======== Vim config ========
 
 " Edit .vimrc and filetype configs
-nnoremap <silent> <leader>ve :edit ~/.vim<CR>
+nnoremap <silent> <leader>ve :vsp ~/.vim<CR>
 nnoremap <silent> <leader>vs :source ~/.vimrc<CR>:nohlsearch<CR>:echo 'Vimrc sourced'<CR><ESC>
 
 " ======== Basics ========
+
+" Notes
+nmap <leader>aa :vsp ~/.vim/wip<CR>
+nmap <leader>aw :vsp ~/.vim/notes/wip.md<CR>
+nmap <leader>ai :vsp ~/.vim/notes/improvements.md<CR>
+nmap <leader>ar :vsp ~/.vim/notes/recruitment.md<CR>
+nmap <leader>at :vsp ~/.vim/notes/tricks.md<CR>
+vmap <leader>a :'<,'>!python -m json.tool<CR>
 
 " Simple save and quit
 nmap <leader>w :w<CR>
@@ -53,8 +61,8 @@ nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> <leader>gr <Plug>(coc-references)
 
-" Show server status
-nmap <silent> <leader>ss :echo CocAction('services')<CR>
+" Restart
+nmap <silent> <leader>sR :CocRestart<CR>
 
 " ======== New commands ========
 
@@ -95,6 +103,9 @@ let g:VM_maps['Numbers Append'] = '<C-e>'
 
 " ======== Splits ========
 
+" Open current buffer on a new vertical split
+nnoremap <leader>vv :vsp<CR>
+
 " Navigate
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -116,7 +127,7 @@ nnoremap <leader>cn :NERDTreeFind<CR>
 " ======== Search files ========
 
 " Fuzzy file match
-nnoremap <leader>ff :Files<CR>
+nnoremap <leader>ff :GFiles<CR>
 " Recent file match
 nnoremap <leader>fh :History<CR>
 " Full text match
@@ -128,17 +139,25 @@ nnoremap <leader>fi :Ag<CR>
 " ======== Git ========
 
 " Git status
-nnoremap <silent> <leader>ts :Git status<CR>
+nnoremap <silent> <leader>ts :Git<CR>
 " s: stage
 " u: unstage
 " =: show diff
 " cc: commit
 " ca: amend commit
 
+" Git log
+nnoremap <silent> <leader>tl :Git log<CR>
+
+" Git show HEAD
+nnoremap <silent> <leader>th :Git show HEAD<CR>
+
+" Git push current branch
+nnoremap <silent> <leader>tp :Git push origin HEAD<CR>
+
 " On the current file
 nnoremap <silent> <leader>tb :Git blame<CR>
 nnoremap <silent> <leader>td :Gvdiff<CR>
-nnoremap <silent> <leader>tr :Gread<CR>
 
 " ======== Mac ssh ========
 

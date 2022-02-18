@@ -56,6 +56,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tasn/vim-jsx-typescript'
+" Plug 'neoclide/coc-eslint'
 
 " Language specific: elixir
 " Plug 'elixir-editors/vim-elixir'

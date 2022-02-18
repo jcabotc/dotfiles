@@ -71,7 +71,7 @@ set autoindent
 set smarttab
 set expandtab
 let g:indentLine_enabled = 0
-let g:indentLine_char_list = ['|', '┆']
+let g:indentLine_char_list = ['|', '┆', ':']
 
 " Search
 set hlsearch   " Highlighted
@@ -96,7 +96,7 @@ let g:yankring_history_dir = '~/.vim/tmp/yankring'
 
 " Autocomplete
 set updatetime=750 " Time to trigger popups (default 4000)
-let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-prettier', 'coc-highlight', 'coc-pairs']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-highlight', 'coc-pairs']
 
 function! s:check_back_space() abort " Use tab to autocomplete
   let col = col('.') - 1
@@ -117,6 +117,9 @@ hi CocInfoHighlight gui=underline cterm=underline term=underline
 " New splits right to bottom
 set splitbelow
 set splitright
+
+" Separators color
+hi VertSplit ctermbg=236
 
 " ======== Project tree ========
 
